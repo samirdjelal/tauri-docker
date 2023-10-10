@@ -13,6 +13,7 @@ pipeline {
                         //     docker.image("tauri-ubuntu:latest").push()
                         // }
                         // docker.image("tauri-ubuntu:latest").push()
+                        sh 'docker tag tauri-ubuntu:latest samirdjelal/tauri-ubuntu:latest'
                         sh 'docker push samirdjelal/tauri-ubuntu:latest'
                     }
                 }
