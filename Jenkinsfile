@@ -9,7 +9,7 @@ pipeline {
                 script {
                     docker.build("tauri-ubuntu", "-f ubuntu.Dockerfile .")
                     docker.withRegistry("https://registry.hub.docker.com", "docker-hub-credentials") {
-                        docker.image("samirdjelal/tauri-ubuntu:latest").push()
+                        docker.image("samirdjelal/tauri-ubuntu").push()
                     }
                 }
             }
@@ -19,7 +19,7 @@ pipeline {
         //         script {
         //             docker.build("tauri", "-f windows.Dockerfile .")
         //             docker.withRegistry("https://registry.hub.docker.com", "docker-hub-credentials") {
-        //                 docker.image("tauri-windows:latest").push()
+        //                 docker.image("tauri-windows").push()
         //             }
         //         }
         //     }
@@ -30,7 +30,7 @@ pipeline {
         //         script {
         //             docker.build("tauri", "-f macos.Dockerfile .")
         //             docker.withRegistry("https://registry.hub.docker.com", "docker-hub-credentials") {
-        //                 docker.image("tauri-macos:latest").push()
+        //                 docker.image("tauri-macos").push()
         //             }
         //         }
         //     }
