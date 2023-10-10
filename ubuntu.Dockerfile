@@ -28,11 +28,11 @@ RUN apt-get install -y \
   libayatana-appindicator3-dev \
   librsvg2-dev
 
-# Install tauri-driver dependencies
-RUN apt-get install -y \
-  webkit2gtk-4.0-dev \
-  webkit2gtk-driver \
-  xvfb
+## Install tauri-driver dependencies
+#RUN apt-get install -y \
+#  webkit2gtk-4.0-dev \
+#  webkit2gtk-driver \
+#  xvfb
 
 ## Install tauri-driver
 ## https://tauri.app/v1/guides/testing/webdriver/introduction#system-dependencies
