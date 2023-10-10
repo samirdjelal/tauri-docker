@@ -11,7 +11,7 @@ pipeline {
                     // docker.withRegistry("https://registry.hub.docker.com", "docker-hub-credentials") {
                     //     docker.image("tauri-ubuntu:latest").push()
                     // }
-                    withDockerRegistry([credentialsId: "docker-hub-credentials", url: ""]) {
+                    withDockerRegistry([credentialsId: "docker-hub-credentials", url: "https://index.docker.io/v1/"]) {
                         docker.image("tauri-ubuntu:latest").push()
                     }
                 }
