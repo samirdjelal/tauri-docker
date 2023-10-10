@@ -7,11 +7,11 @@ pipeline {
         stage("Tauri Ubuntu") {
             steps {
                 script {
-                    docker.build("tauri-ubuntu", "-f ubuntu.Dockerfile .")
-                    // docker.withRegistry("https://registry.hub.docker.com", "docker-hub-credentials") {
-                    //     docker.image("tauri-ubuntu:latest").push()
-                    // }
                     withDockerRegistry([credentialsId: "docker-hub-credentials", url: "https://index.docker.io/v1/"]) {
+                        docker.build("tauri-ubuntu", "-f ubuntu.Dockerfile .")
+                        // docker.withRegistry("https://registry.hub.docker.com", "docker-hub-credentials") {
+                        //     docker.image("tauri-ubuntu:latest").push()
+                        // }
                         // docker.image("tauri-ubuntu:latest").push()
                         sh 'docker push samirdjelal/tauri-ubuntu:latest'
                     }
