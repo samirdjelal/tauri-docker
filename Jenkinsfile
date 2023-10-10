@@ -9,12 +9,12 @@ pipeline {
                 script {
                     withDockerRegistry([credentialsId: "docker-hub-credentials", url: "https://index.docker.io/v1/"]) {
                         docker.build("tauri-ubuntu", "-f ubuntu.Dockerfile .")
+                        sh 'docker tag tauri-ubuntu:latest samirdjelal/tauri-ubuntu:latest'
+                        sh 'docker push samirdjelal/tauri-ubuntu:latest'
                         // docker.withRegistry("https://registry.hub.docker.com", "docker-hub-credentials") {
                         //     docker.image("tauri-ubuntu:latest").push()
                         // }
                         // docker.image("tauri-ubuntu:latest").push()
-                        sh 'docker tag tauri-ubuntu:latest samirdjelal/tauri-ubuntu:latest'
-                        sh 'docker push samirdjelal/tauri-ubuntu:latest'
                     }
                 }
             }
