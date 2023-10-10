@@ -7,7 +7,7 @@ pipeline {
         stage("Tauri Ubuntu") {
             steps {
                 script {
-                    docker.build("tauri", "-f ubuntu.Dockerfile .")
+                    docker.build("tauri-ubuntu", "-f ubuntu.Dockerfile .")
                     docker.withRegistry("https://registry.hub.docker.com", "docker-hub-credentials") {
                         docker.image("samirdjelal/tauri-ubuntu:latest").push()
                     }
