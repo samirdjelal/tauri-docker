@@ -1,24 +1,16 @@
 pipeline {
     agent any
-
     environment {
-        DOCKER_BUILDKIT = '1'
+        DOCKER_BUILDKIT = "1"
     }
-
     stages {
-        stage('Tauri Ubuntu') {
+        stage("Tauri Ubuntu") {
             steps {
                 script {
                     docker.build("tauri", "-f ubuntu.Dockerfile .")
                     docker.withRegistry("https://registry.hub.docker.com", "docker-hub-credentials") {
-                        docker.image("tauri-ubuntu:latest").push()
+                        docker.image("samirdjelal/tauri-ubuntu:latest").push()
                     }
-                    // def dockerHubCredentials = credentials('docker-hub-credentials')
-                    // docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-                    //     sh "docker build -t your-image-name ."
-                    //     sh "docker tag your-image-name ${dockerHubCredentials.Username}/your-image-name:latest"
-                    //     sh "docker push ${dockerHubCredentials.Username}/your-image-name:latest"
-                    // }
                 }
             }
         }
