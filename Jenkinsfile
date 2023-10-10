@@ -9,7 +9,7 @@ pipeline {
                 script {
                     docker.build("tauri-ubuntu", "-f ubuntu.Dockerfile .")
                     docker.withRegistry("https://registry.hub.docker.com", "docker-hub-credentials") {
-                        docker.image("samirdjelal/tauri-ubuntu").push()
+                        docker.image("tauri-ubuntu").push()
                     }
                 }
             }
